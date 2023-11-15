@@ -431,4 +431,8 @@
     }
 }
 
+- (AVAudioFormat *)audioFormat {
+    return self.audioCaptureSource.audioFormat;
+}
+
 @end

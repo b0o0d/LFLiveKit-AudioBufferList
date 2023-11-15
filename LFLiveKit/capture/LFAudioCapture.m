@@ -73,6 +73,7 @@ NSString *const LFAudioComponentFailedToCreateNotification = @"LFAudioComponentF
         desc.mBitsPerChannel = 16;
         desc.mBytesPerFrame = desc.mBitsPerChannel / 8 * desc.mChannelsPerFrame;
         desc.mBytesPerPacket = desc.mBytesPerFrame * desc.mFramesPerPacket;
+        self.audioFormat = [[AVAudioFormat alloc] initWithStreamDescription:&desc];
         
         AURenderCallbackStruct cb;
         cb.inputProcRefCon = (__bridge void *)(self);
