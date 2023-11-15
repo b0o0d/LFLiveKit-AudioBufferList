@@ -135,6 +135,12 @@
     if (self.uploading) [self.audioEncoder encodeAudioData:audioData timeStamp:NOW];
 }
 
+- (void)captureOutput:(LFAudioCapture *)capture audioBufferList:(AudioBufferList *)audioBufferList {
+    if ([self.delegate respondsToSelector:@selector(liveSession:audioBufferList:)]) {
+        [self.delegate liveSession:self audioBufferList:audioBufferList];
+    }
+}
+
 - (void)captureOutput:(nullable LFVideoCapture *)capture pixelBuffer:(nullable CVPixelBufferRef)pixelBuffer {
     if (self.uploading) [self.videoEncoder encodeVideoData:pixelBuffer timeStamp:NOW];
 }

@@ -49,6 +49,8 @@ typedef NS_ENUM(NSInteger,LFLiveCaptureTypeMask) {
 - (void)liveSession:(nullable LFLiveSession *)session debugInfo:(nullable LFLiveDebug *)debugInfo;
 /** callback socket errorcode */
 - (void)liveSession:(nullable LFLiveSession *)session errorCode:(LFLiveSocketErrorCode)errorCode;
+/** for sound analyzing use */
+- (void)liveSession:(LFLiveSession *)session audioBufferList:(AudioBufferList *)audioBufferList;
 @end
 
 @class LFLiveStreamInfo;
